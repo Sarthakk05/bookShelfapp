@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import Login from './Login';
 
+import Login from './Login';
+import { useAuth } from '../context/Authprovider';
+import Logout from './Logout';
 function Navbar() {
+  const [authUser,setAuthUser]=useAuth()
+ // console.log(authUser);
   const[theme,setTheme]=useState(localStorage.getItem("theme")?localStorage.getItem("theme"):"light")
   const element=document.documentElement;
   useEffect(()=>{
@@ -46,9 +50,9 @@ function Navbar() {
     );
   return (
     <>
-      <div className={`max-w-screen-2xl container mx-auto md:px-20 px-4 dark:bg-slate-900 dark:text-white fixed top-0 left-0 right-0 z-50 ${
+      <div className={` max-w-screen-2xl container mx-auto md:px-20 px-4 dark:bg-slate-900 dark:text-white fixed top-0 left-0 right-0 z-50 ${
       sticky
-      ?"sticky-navbar shadow-md bg-base-200 dark:bg-slate-900 dark:text-white duration-300 transition-all ease-in-out":""
+      ?"sticky-navbar shadow-md bg-base-200  dark:bg-slate-900 dark:text-white duration-300 transition-all ease-in-out":""
       }` }>
     <div className="navbar ">
   <div className="navbar-start">
@@ -73,7 +77,7 @@ function Navbar() {
    {navitems}
       </ul>
     </div>
-    <a className=" text-2xl font-bold">bookShelf</a>
+    <a className=" text-2xl font-bold">book<span className='text-purple-500'>Shelf</span></a>
 
   </div>
   <div className="navbar-end space-x-3 ">
@@ -123,7 +127,10 @@ function Navbar() {
       d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
   </svg>
 </label>
-  <div className="">
+{
+  authUser?<Logout/>:
+
+   <div className="">
     <a className="bg-black text-white px-3 py-2 rounded-md hover:bg-slate-800 duration-300 cursor-pointer"
     onClick={()=>
     document.getElementById("my_modal_3").showModal()
@@ -132,12 +139,12 @@ function Navbar() {
       Login
       </a>
       <Login/>
-  </div>
+  </div> 
+}
   </div>
 </div>
     </div>
     </>
-  )
+);
 }
-
 export default Navbar

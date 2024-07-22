@@ -7,13 +7,11 @@ function Bannerr() {
     <div className='max-w-screen-2xl container mx-auto md:px-20 px-4 flex flex-col md:flex-row my-10 '>
         <div className='w-full order-2 md:order-1 md:w-1/2 mt-12 md:mt-32 '>
         <div className='space-y-12'> 
-        <h1 className=' text-4xl font-bold'>Hello, welcomes here to learn
-             something{''} <span className='text-pink-500'>new everyday</span></h1>
-       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero at explicabo eius
-         eum doloremque molestias tempore dolorem itaque ratione ipsa debitis, possimus a tatione ipsa debit
-         Libero at explicabo</p>    
+        <h1 className=' text-4xl font-bold'>Expand your horizons with new knowledge {''}<span className='text-purple-500'>everyday!</span> 
+         </h1>
+       <p>Dive into a world of knowledge with Bookshelf. Explore new topics, sharpen your skills, and stay curious every day.</p>    
        
-        <label className="  input input-bordered flex items-center gap-2">
+        <label className="  input input-bordered flex items-center gap-2 bg-white dark:bg-gray-800">
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 16 16"
@@ -24,11 +22,11 @@ function Bannerr() {
     <path
       d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
   </svg>
-  <input type="text" className="grow" placeholder="Email" />
+  <input type="text" className="grow bg-white dark:bg-gray-800" placeholder="Email" />
 </label>
 
 </div>
-<button className="btn btn-secondary mt-6">Secondary</button>
+<button className="btn dark:border-black bg-purple-500 text-white hover:bg-purple-700 dark:hover:border-black dark:text-black mt-6 ">Get Started</button>
         </div>
         <div className='w-full order-1 md:w-1/2'>
         <img src={banner}  className="w-88 h-90 order-1" alt="" />
